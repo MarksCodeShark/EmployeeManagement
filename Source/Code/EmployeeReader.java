@@ -12,9 +12,9 @@ public class EmployeeReader {
     public static void read() throws FileNotFoundException {
         Scanner scanner = new Scanner(new File("../EmployeeList - Employees.csv"));
         scanner.useDelimiter(",");
-        while(scanner.hasNext()){
-            System.out.print(scanner.next()+"|");
-        }
+        // while(scanner.hasNext()){
+        //     System.out.print(scanner.next()+"|");
+        // }
         scanner.close();
     }
  }
