@@ -4,6 +4,8 @@
  * @since   2018-07-14 
  */
 
+import java.io.FileNotFoundException;
+
  public class EmployeeManager {
      
      /**
@@ -11,6 +13,10 @@
       * @param args The command line arguments
       */
      public static void main(String[] args) {
-         
+         try {
+            EmployeeReader.read("Employees.csv");
+         } catch (FileNotFoundException e) {
+            // TODO: Do something with file not found    
+         }
      }
  }
