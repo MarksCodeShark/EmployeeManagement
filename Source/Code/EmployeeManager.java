@@ -1,4 +1,8 @@
 /**
+ * The EmplyeeManager program implements an application that
+ * allows a user to read an input file of employees and perform
+ * various search tasks on said employees.
+ *
  * @author  Mark Coetzer
  * @version 1.0
  * @since   2018-07-14 
