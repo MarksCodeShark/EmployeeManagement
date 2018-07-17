@@ -5,7 +5,7 @@ CFLAGS=
 all:
 	$(COMPILER) $(CFLAGS) *.java
 
-run: 
+run: all
 	java EmployeeManager
 
 clean:
