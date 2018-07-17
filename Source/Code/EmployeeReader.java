@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class EmployeeReader {
     public static void read(String fileName) throws FileNotFoundException {
-        Scanner scanner = new Scanner(new File("Employees.csv"));
+        Scanner scanner = new Scanner(new File(fileName));
         scanner.useDelimiter(",");
         while(scanner.hasNext()){
              System.out.print(scanner.next()+"|");
