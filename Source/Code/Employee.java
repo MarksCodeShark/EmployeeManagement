@@ -6,6 +6,8 @@
 
 import java.lang.Comparable;
 import java.util.Date;
+import java.text.SimpleDateFormat;  
+import java.text.ParseException;
 
  class Employee implements Comparable<Employee> {
      
@@ -29,6 +31,26 @@ import java.util.Date;
         this._salary = salary;
         this._birthDate = birthDate;
         this._reportsTo = reportsTo;
+    }
+
+    Employee(String empID, String fName, String lName, String role, String salary, String birthDate, String reportsTo) throws ParseException {
+        this._empID = Integer.parseInt(empID);
+        this._fName = fName;
+        this._lName = lName;
+        switch (role.toUpperCase()) {
+            case "MANAGER" :  this._role = Role.MANAGER;
+                     break;
+            case "EMPLOYEE" :  this._role = Role.EMPLOYEE;
+                     break;
+            case "TRAINEE" :  this._role = Role.TRAINEE;
+                     break;
+            default: this._role = Role.EMPLOYEE;
+                     break;
+        }
+        this._salary = Float.valueOf(salary);
+        this._birthDate = new SimpleDateFormat("dd/MM/yyyy").parse(birthDate);
+        this._reportsTo = null;
+        //this._reportsTo = reportsTo;
     }
 
     //================================================================================
