@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class EmployeeReader {
-    public static void read() throws FileNotFoundException {
+    public static void read(String fileName) throws FileNotFoundException {
         Scanner scanner = new Scanner(new File("Employees.csv"));
         scanner.useDelimiter(",");
         while(scanner.hasNext()){
