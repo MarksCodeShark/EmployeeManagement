@@ -1,15 +1,18 @@
 /**
+ * The EmployeeDriver class provides the end point for the application. <br>
+ * It provides an interface to access Company functions.
+ * @see Company
  * 
- */
-
-/**
- * @author Mark
- *
+ * @author  Mark Coetzer
+ * @version 1.0
+ * @since   2018-07-14 
  */
 public final class EmployeeDriver {
 
 	/**
-	 * @param args
+	 * The main method <br>
+	 * Program initialisation point
+	 * @param args Console input - Not used
 	 */
 	public static void main(String[] args) {
 		System.out.println("Welcome to the Employee Management Application!");
@@ -23,16 +26,21 @@ public final class EmployeeDriver {
 			String selection = System.console().readLine();
 	        switch (selection.toUpperCase()) {
             case "1" : searchEmployee(localCompany);
+            		   System.console().readLine();
                      break;
             case "2" : searchEmployeeDoB(localCompany);
+            		   System.console().readLine();
                      break;
-            case "3" :  localCompany.printStructure();
-                     break;
-            case "4" :  localCompany.printHighestEarnings();
+            case "3" : localCompany.printStructure();
+            		   System.console().readLine();
             		 break;
-            case "5" :  localCompany.listAllEmployees();
+            case "4" : localCompany.printHighestEarnings();
+            		   System.console().readLine();
             		 break;
-            case "x" :  System.exit(0);
+            case "5" : localCompany.listAllEmployees();
+            		   System.console().readLine();
+            		 break;
+            case "x" : System.exit(0);
    		 			break;
             default: System.out.println("Invalid selection. Please try again.");;
                      break;
@@ -40,6 +48,9 @@ public final class EmployeeDriver {
 		}
 	}
 
+	/**
+	 * Displays the menu list
+	 */
 	public static void displayMenu() {
 		clearScreen();
 		System.out.println("What would you like to do?");
@@ -55,17 +66,28 @@ public final class EmployeeDriver {
 		System.out.println("Please enter the number/letter of your choice: ");
 	}
 	
+	/**
+	 * Attempts to flush the System.out
+	 */
 	public static void clearScreen() {  
 	    System.out.print("\033[H\033[2J");  
 	    System.out.flush();  
 	}
 	
+	/**
+	 * Helper function to allow input for Employee Search
+	 * @param localCompany
+	 */
 	public static void searchEmployee(Company localCompany) {
 		System.out.println("Please enter the name of the Employee you'd like to search for: ");
 		String input = System.console().readLine().trim();
 		localCompany.getEmployee(input);
 	}
 	
+	/**
+	 * Helper function to allow input for Employee Date of Birth Search
+	 * @param localCompany
+	 */
 	public static void searchEmployeeDoB(Company localCompany) {
 		System.out.println("Please enter minimum date of birth in the format 'dd-mm-yyyy'");
 		String input = System.console().readLine().trim();

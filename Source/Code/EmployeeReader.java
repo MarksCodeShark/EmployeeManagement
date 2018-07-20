@@ -17,7 +17,7 @@ public class EmployeeReader {
 
     /**
      * This is the read method which takes a file name as input and reads the 
-     * data into an Arrraylist of Employees.
+     * data into an Arraylist of Employees.
      * NOTE: It expects the input format as: employeeId, firstName, lastName, Role, "Salary", dateOfBirth, reportsTo"
      * E.g. 1,John,Smith,Manager,58500.00,01/01/1990,John Smith
      *
@@ -25,6 +25,7 @@ public class EmployeeReader {
      * @return ArrayList of Employees.
      * @exception FileNotFoundException On file not found error.
      * @see FileNotFoundException
+     * @see ArrayList
      */
     public static ArrayList<Employee> read(String fileName) throws FileNotFoundException {
         Scanner scanner = new Scanner(new File(fileName));
