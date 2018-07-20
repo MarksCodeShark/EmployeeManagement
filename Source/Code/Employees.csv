@@ -1,5 +1,5 @@
-1,John,Smith,Manager,58500.00,01/01/1990,None
-2,Jane,Doe,Employee,37500.00,03/12/1993,John Smith
-3,Jim,Bean,Employee,25000.00,23/05/1994,Jane Doe
-4,Roger,Wilco,Trainee,12000.00,16/02/1998,Jane Doe
-5,Susan,Roe,Trainee,12000.00,07/06/1999,Jane Doe
+1,John,Smith,Manager,58500,1/1/1990,None
+2,Jane,Doe,Employee,37500,3/12/1993,John Smith
+3,Jim,Bean,Employee,25000,23/05/1994,Jane Doe
+4,Roger,Wilco,Trainee,12000,16/02/1998,Jane Doe
+5,Susan,Roe,Trainee,13000,7/6/1999,Jane Doe

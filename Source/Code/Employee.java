@@ -6,7 +6,7 @@
 
 import java.lang.Comparable;
 import java.util.Date;
-import java.text.SimpleDateFormat;  
+import java.text.SimpleDateFormat;
 import java.text.ParseException;
 
  class Employee implements Comparable<Employee> {
@@ -18,6 +18,7 @@ import java.text.ParseException;
     private Float _salary;
     private Date _birthDate;
     private Employee _reportsTo;
+    private int _level;
 
     //================================================================================
     // Constructors
@@ -30,10 +31,26 @@ import java.text.ParseException;
         this._role = role;
         this._salary = salary;
         this._birthDate = birthDate;
-        this._reportsTo = reportsTo;
+        if(reportsTo != null) {
+        	this._reportsTo = reportsTo;
+        } else {
+        	this._reportsTo = null;
+        }
+        this._level = 0;
+    }
+    
+    Employee(int empID, String fName, String lName, Role role, Float salary, Date birthDate) {
+        this._empID = empID;
+        this._fName = fName;
+        this._lName = lName;
+        this._role = role;
+        this._salary = salary;
+        this._birthDate = birthDate;
+        this._reportsTo = null;
+        this._level = 0;
     }
 
-    Employee(String empID, String fName, String lName, String role, String salary, String birthDate, String reportsTo) throws ParseException {
+    Employee(String empID, String fName, String lName, String role, String salary, String birthDate) throws ParseException {
         this._empID = Integer.parseInt(empID);
         this._fName = fName;
         this._lName = lName;
@@ -50,7 +67,7 @@ import java.text.ParseException;
         this._salary = Float.valueOf(salary);
         this._birthDate = new SimpleDateFormat("dd/MM/yyyy").parse(birthDate);
         this._reportsTo = null;
-        //this._reportsTo = reportsTo;
+        this._level = 0;
     }
 
     //================================================================================
@@ -84,6 +101,18 @@ import java.text.ParseException;
     public Employee getReportsTo() {
         return this._reportsTo;
     }
+    
+    public int getLevel() {
+    	return this._level;
+    }
+    
+    public String getFullName() {
+    	return this._fName + " " + this._lName;
+    }
+    
+    public String getFullNameSalary() {
+    	return this.getFullName() + " R" + String.format("%.02f", this._salary);
+    }
 
     //================================================================================
     // Set Modifiers
@@ -97,7 +126,7 @@ import java.text.ParseException;
         this._fName = fName;
     }
 
-    public void getLastName(String lName) {
+    public void setLastName(String lName) {
         this._lName = lName;
     }
 
@@ -116,18 +145,38 @@ import java.text.ParseException;
     public void setReportsTo(Employee reportsTo) {
         this._reportsTo = reportsTo;
     }
+    
+    public void setLevel(int level) {
+    	this._level = level;
+    }
 
     //================================================================================
     // Member Functions
     //================================================================================
-
+    
+    @Override public String toString() {
+    	String returnString = "Employee Details for Employee ID: " + this._empID + "\n";
+    	returnString += "================================================================================\n";
+    	returnString += "Name: " + this._fName + " " + this._lName + "\n";
+    	returnString += "Date of Birth: " + new SimpleDateFormat("dd-MM-yyyy").format(this._birthDate) + "\n";
+    	returnString += "Role: " + this._role + "\n";
+    	returnString += "Salary: R" + String.format("%.02f", this._salary) + "\n";
+    	if(this._reportsTo != null) {
+        	returnString += "Reports to: " + this._reportsTo.getFullName() + "\n";
+    	} else {
+    		returnString += "Reports to: NULL \n";
+    	}
+    	returnString += "================================================================================\n";
+        return returnString;
+    }
+    
     public int compareTo(Employee emp) {
         Float compSalary = emp.getSalary();  
         if(this._salary == compSalary)  
             return 0;  
-        else if(this._salary > compSalary)  
+        else if(this._salary < compSalary)  
             return 1;  
         else  
             return -1;  
     }  
- }
+}
